@@ -1,0 +1,197 @@
+/* Configurações Gerais e Paleta Rosa */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #ff758c 100%);
+    color: #4a0e2e;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Cabeçalho */
+header {
+    text-align: center;
+    padding: 60px 20px 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.titulo-barbie {
+    font-family: 'Pacifico', cursive;
+    font-size: 3.5rem;
+    color: #e0218a; /* Rosa Barbie Clássico */
+    text-shadow: 3px 3px 0px #ffffff, 0 0 20px rgba(224, 33, 138, 0.5);
+    margin-bottom: 10px;
+    animation: pulsarTitulo 3s infinite ease-in-out;
+}
+
+.subtitulo {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #880e4f;
+    background-color: rgba(255, 255, 255, 0.7);
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 30px;
+}
+
+/* Container das Seções */
+.timeline-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Cartões das Metas */
+.card-futuro {
+    background: rgba(255, 255, 255, 0.92);
+    border: 3px solid #ff69b4;
+    border-radius: 25px;
+    padding: 35px;
+    box-shadow: 0 10px 25px rgba(224, 33, 138, 0.25);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.card-futuro.visivel {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card-futuro:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 15px 35px rgba(224, 33, 138, 0.45);
+}
+
+.badge-tempo {
+    display: inline-block;
+    background: linear-gradient(45deg, #e0218a, #ff69b4);
+    color: white;
+    font-weight: 700;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.card-futuro h2 {
+    color: #c2185b;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.card-futuro p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #5c1638;
+    margin-bottom: 20px;
+}
+
+/* Botão Interativo */
+.btn-brilho {
+    background: linear-gradient(45deg, #ff1493, #ff69b4);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 20, 147, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn-brilho:hover {
+    background: linear-gradient(45deg, #e0218a, #ff1493);
+    transform: scale(1.05);
+}
+
+/* Animação Temática Barbie */
+#barbie-animation-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.barbie-silhouette {
+    position: absolute;
+    top: 15%;
+    right: -150px;
+    font-size: 3rem;
+    animation: desfilarBarbie 18s linear infinite;
+    opacity: 0.8;
+}
+
+.estrela-flutuante {
+    position: absolute;
+    color: #fff;
+    font-size: 1.5rem;
+    animation: subirBrilho 4s ease-in forwards;
+    text-shadow: 0 0 10px #ff1493, 0 0 20px #ffffff;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 30px;
+    margin-top: 40px;
+    color: #880e4f;
+    font-weight: 600;
+    position: relative;
+    z-index: 2;
+}
+
+/* Keyframes das Animações */
+@keyframes pulsarTitulo {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+}
+
+@keyframes desfilarBarbie {
+    0% { right: -150px; transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-20px) rotate(5deg); }
+    50% { transform: translateY(0px) rotate(-5deg); }
+    75% { transform: translateY(-20px) rotate(5deg); }
+    100% { right: 110%; transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes subirBrilho {
+    0% {
+        transform: translateY(0) scale(0.5) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) scale(1.5) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Responsividade para Celular */
+@media (max-width: 600px) {
+    .titulo-barbie {
+        font-size: 2.3rem;
+    }
+    .card-futuro {
+        padding: 25px;
+    }
+}
